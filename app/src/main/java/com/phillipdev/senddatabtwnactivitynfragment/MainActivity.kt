@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
             bundle.putDouble("length", length)
             bundle.putDouble("width", width)
             brickResultFragment.arguments = bundle
+            ft.add(R.id.frame, brickResultFragment)
             ft.commit()
 
         }
