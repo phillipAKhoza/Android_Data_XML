@@ -1,5 +1,6 @@
 package com.phillipdev.sendingdatabtwnactivities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -21,7 +22,16 @@ class MainActivity : AppCompatActivity() {
         btnSignUp = findViewById(R.id.btnSignUp)
 
         btnSignUp.setOnClickListener {
+            val name = etName.text.toString()
+            val email = etEmail.text.toString()
+            val phone = etPhone.text.toString().toLong()
+            val intent = Intent(this, SecondActivity::class.java)
 
+            intent.putExtra("name", name)
+            intent.putExtra("email", email)
+            intent.putExtra("phone", phone)
+
+            startActivity(intent)
         }
     }
 }
