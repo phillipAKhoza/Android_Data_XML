@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 
 class MainActivity : AppCompatActivity() {
     lateinit var etLenght : EditText
@@ -16,6 +18,9 @@ class MainActivity : AppCompatActivity() {
         etLenght = findViewById(R.id.editTextLength)
         etWidth = findViewById(R.id.editTextWidth)
         btnCalculate = findViewById(R.id.btnCalc)
+        val fm : FragmentManager = supportFragmentManager
+        val ft : FragmentTransaction = fm.beginTransaction()
+        val brickResultFragment = BrickResultFragment()
 
         btnCalculate.setOnClickListener {
             val length : Double = etLenght.text.toString().toDouble()
@@ -24,6 +29,9 @@ class MainActivity : AppCompatActivity() {
             val bundle = Bundle()
             bundle.putDouble("length", length)
             bundle.putDouble("width", width)
+            brickResultFragment.arguments = bundle
+            ft.commit()
+
         }
 
     }
