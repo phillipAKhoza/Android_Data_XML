@@ -18,7 +18,12 @@ class MainActivity : AppCompatActivity() {
         btnCalculate = findViewById(R.id.btnCalc)
 
         btnCalculate.setOnClickListener {
+            val length : Double = etLenght.text.toString().toDouble()
+            val width : Double = etWidth.text.toString().toDouble()
 
+            val bundle = Bundle()
+            bundle.putDouble("length", length)
+            bundle.putDouble("width", width)
         }
 
     }
