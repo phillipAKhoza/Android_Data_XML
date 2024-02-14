@@ -18,7 +18,7 @@ class BrickResultFragment : Fragment() {
 
         val length : Double = arguments?.getDouble("length").toString().toDouble()
         val width: Double = arguments?.getDouble("width").toString().toDouble()
-        val result : Double = (length*width) * 60
+        val result : Int = ((length*width) * 60).toInt()
         tvReults.text = "You need $result Bricks"
         // Inflate the layout for this fragment
         return view
